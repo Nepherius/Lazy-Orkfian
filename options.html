@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Settings</title>
+        <style>
+            body: {
+                padding: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- TODO make this less ugly -->
+        <div>
+            Preset:
+            <select id="race">
+                <option>None</option>
+                <option>Dark Elf</option>
+                <option>Dwarf</option>
+                <option>Eagle</option>
+                <option>Fairy</option>
+                <option>High Elf</option>
+                <option>Hobbit</option>
+                <option>Mori Hai</option>
+                <option>Raven</option>
+                <option>Spirit</option>
+                <option>Uruk Hai</option>
+                <option>Wizard</option>
+                <option>Wood Elf</option>
+            </select>
+        </div>
+        <form class='buildings'>
+            <div>
+                Homes:
+                <input type="text" placeholder="Percent" name="homes">
+            </div>
+            <div>
+                Farms:
+                <input type="text" placeholder="Percent" name="farms">
+            </div>
+            <div>
+                Walls:
+                <input type="text" placeholder="Percent" name="walls">
+            </div>
+            <div>
+                Weaponries:
+                <input type="text" placeholder="Percent" name="weaponries">
+            </div>
+            <div>
+                Guilds:
+                <input type="text" placeholder="Percent" name="guilds">
+            </div>
+            <div>
+                Mines:
+                <input type="text" placeholder="Percent" name="mines">
+            </div>
+            <div>
+                Bastions:
+                <input type="text" placeholder="Percent" name="bastions">
+            </div>
+            <div>
+                Laboratories:
+                <input type="text" placeholder="Percent" name="labs">
+            </div>
+            <div>
+                Churches:
+                <input type="text" placeholder="Percent" name="churches">
+            </div>
+            <div>
+                Guard Houses:
+                <input type="text" placeholder="Percent" name="gaurds">
+            </div>
+            <div>
+                Barracks:
+                <input type="text" placeholder="Percent" name="barracks">
+            </div>
+            <div>
+                Hideouts:
+                <input type="text" placeholder="Percent" name="hideouts">
+            </div>
+            <div>
+                Academies:
+                <input type="text" placeholder="Percent" name="academies">
+            </div>
+            <div>
+                Yards:
+                <input type="text" placeholder="Percent" name="yards">
+            </div>
+
+            <div id="status"></div>
+        </form>
+        <button id="save">Save</button>
+        <script src="options.js"></script>
+        <script src="jquery-3.1.0.min.js"></script>
+    </body>
+</html>

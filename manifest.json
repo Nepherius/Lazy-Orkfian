@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Lazy Orkfian",
+    "description": "Builds your barren land based on preset percentages",
+    "version": "1.0",
+    "author" : "Nepherius",
+    "homepage_url": "http://nepherius.xyz",
+    "browser_action": {
+        "default_icon": "orkfia.png"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "https://alliancesatwar.com/*"
+    ],
+    "content_scripts": [{
+        "matches": ["http://alliancesatwar.com/construction*"],
+        "css": ["ohsnap.css"],
+        "js": ["ohsnap.min.js"],
+        "run_at": "document_end"
+    }]
+}

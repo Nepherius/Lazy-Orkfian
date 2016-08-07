@@ -1,7 +1,6 @@
 /* jshint esversion: 6 */ //JsLint fix
 /* jshint node: true */
 
-
 const Races = {
     'Dark Elf': {
         homes: 30,
@@ -48,7 +47,7 @@ function save_options() {
     formData.map(function(el) {
 
             SaveData[el.name] = el.value;
-        
+
     });
     console.log(SaveData);
     // Save data to storage
@@ -65,7 +64,6 @@ function save_options() {
         $("form").trigger('reset');
     });
 }
-
 
 document.getElementById('race').addEventListener('change', selectRace);
 document.getElementById('save').addEventListener('click', save_options);

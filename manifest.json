@@ -6,10 +6,10 @@
     "author" : "Nepherius",
     "homepage_url": "http://nepherius.xyz",
     "browser_action": {
-        "default_icon": "orkfia.png"
+        "default_icon": "images/orkfia.png"
     },
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["js/background.js"]
     },
     "options_ui": {
         "page": "options.html",
@@ -22,8 +22,8 @@
     ],
     "content_scripts": [{
         "matches": ["http://alliancesatwar.com/construction*"],
-        "css": ["ohsnap.css"],
-        "js": ["ohsnap.min.js"],
+        "css": ["css/ohsnap.css"],
+        "js": ["/js/plugins/ohsnap.min.js"],
         "run_at": "document_end"
     }]
 }

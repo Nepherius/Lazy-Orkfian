@@ -4,10 +4,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
             console.log('Must be on Alliances At War Construction Page!');
         } else {
             chrome.tabs.executeScript(null, {
-                file: "jquery-3.1.0.min.js"
+                file: "js/plugins/jquery-3.1.0.min.js"
             }, function() {
                 chrome.tabs.executeScript(null, {
-                    file: "content.js"
+                    file: "js/content.js"
                 });
             });
             console.log('Magic Happening!');

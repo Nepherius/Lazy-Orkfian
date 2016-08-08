@@ -3,14 +3,11 @@
 (function() {
     //chrome.storage.sync.clear();
     $('#content').append('<div id="ohsnap"></div>');
-
     /* Get Data From Page and Chrome Storage */
     const totalAcres = $('.totaltext').text().replace(/[^\d]/g, '');
     let buildableLand = $('.buildable').text();
-
     // Retrieve Building Table
     const table = $('table');
-
     /***************** Many Questionable things happening below *****************/
     let Buildings = [];
     let current_1;
@@ -30,7 +27,6 @@
             current_1 = filter_1;
             incoming_1 = 0;
         }
-
         let name_1 = table.find('tr').eq(i).children().eq(0).text().replace(/[^\w\d]/gi, '');
         let percent_1 = table.find('tr').eq(i).children().eq(2).text().replace(/[^\w\d]/gi, '');
         Buildings.push({
@@ -63,7 +59,7 @@
     const getStorageData = new Promise(function(resolve, reject) {
         chrome.storage.sync.get(null, function(storageData) {
             if (Object.getOwnPropertyNames(storageData).length === 0) {
-                reject(Error('noSettings'));
+                reject('noSettings');
             } else {
                 resolve(storageData);
             }
@@ -71,13 +67,14 @@
     });
 
     /* Calculate and input the data */
-    if (buildableLand === 0 || buildableLand.length === 0) { //TODO fix me
+    if (buildableLand === 0 || buildableLand.length === 0) {
         ohSnap('No buildable land, go attack someone!', {
             color: 'blue',
             'duration': 3000,
         });
     } else {
         getStorageData.then(function(buildingsData) {
+            //loop through the buildings array
             Buildings.forEach(function(bl) {
                 // Nothing to do if no percent, 0% set in options
                 // or no more buildable land left
@@ -92,13 +89,14 @@
                 'duration': 5000,
             });
         }, function(err) {
-            ohSnap('No settings found, go to options!', {
+            optionsUrl = chrome.extension.getURL('options.html');
+            ohSnap('No settings found, click --> <a href="' + optionsUrl + '" target="_blank">Options</a>!', {
                 color: 'red',
-                duration: 3000,
+                duration: 6000,
             });
         });
     }
-
+    //chrome.extension.getURL('options.html')
     function buildCalc(name, current, incoming, target) {
         let toBuild = Math.round(target / 100 * totalAcres - current - incoming);
         if (buildableLand > 0 && target > 0 && toBuild > 0) {

@@ -7,8 +7,10 @@ To use follow these steps:
 
 2. Unzip the file
 
-3. Open chrome, switch to extensions tab and simple drag the unziped folder in that tab 
-or click 'Load Unpacked Extension' and select the unziled folder. 
+3. Open chrome, switch to extensions tab and simple drag the unziped folder in that tab
+or click 'Load Unpacked Extension' and select the unzipped folder.
+Developer mode has to be enabled.
+
 
 4. Open exension options and enter the optimal building percentages
 

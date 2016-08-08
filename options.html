@@ -2,19 +2,30 @@
 <html>
     <head>
         <title>Settings</title>
-        <style>
-            body: {
-                padding: 10px;
-            }
-
-        </style>
     </head>
     <body>
-        <!-- TODO make this less ugly -->
-        <div>
-            Preset:
-            <select id="race">
-                <option>None</option>
+
+        <div class="form-style">
+            <div class="form-style-heading">Set Building %</div>
+            <span>
+                <select id="growthMode" class="field-select">
+                    <option>Growth Mode</option>
+                    <option>Dark Elf</option>
+                    <option>Dwarf</option>
+                    <option>Eagle</option>
+                    <option>Fairy</option>
+                    <option>High Elf</option>
+                    <option>Hobbit</option>
+                    <option>Mori Hai</option>
+                    <option>Raven</option>
+                    <option>Spirit</option>
+                    <option>Uruk Hai</option>
+                    <option>Wizard</option>
+                    <option>Wood Elf</option>
+                </select>
+            </span>
+            <select id="warMode" class="field-select">
+                <option>War Mode</option>
                 <option>Dark Elf</option>
                 <option>Dwarf</option>
                 <option>Eagle</option>
@@ -28,69 +39,74 @@
                 <option>Wizard</option>
                 <option>Wood Elf</option>
             </select>
+            <hr>
+            <form class="buildings">
+                <label>
+                    <span>Homes</span>
+                    <input type="text" class="input-field" name="homes"/>
+                </label>
+                <label>
+                    <span>Farms</span>
+                    <input type="text" class="input-field" name="farms"/>
+                </label>
+                <label>
+                    <span>Walls</span>
+                    <input type="text" class="input-field" name="walls"/>
+                </label>
+                <label>
+                    <span>Weaponries</span>
+                    <input type="text" class="input-field" name="weaponries"/>
+                </label>
+                <label>
+                    <span>Guilds</span>
+                    <input type="text" class="input-field" name="guilds"/>
+                </label>
+                <label>
+                    <span>Mines</span>
+                    <input type="text" class="input-field" name="mines"/>
+                </label>
+                <label>
+                    <span>Bastions</span>
+                    <input type="text" class="input-field" name="bastions"/>
+                </label>
+                <label>
+                    <span>Laboratories</span>
+                    <input type="text" class="input-field" name="labs"/>
+                </label>
+                <label>
+                    <span>Churches</span>
+                    <input type="text" class="input-field" name="churches"/>
+                </label>
+                <label>
+                    <!-- gaurds is not a type just replicating the game :) -->
+                    <span>Guard Houses</span>
+                    <input type="text" class="input-field" name="gaurds"/>
+                </label>
+                <label>
+                    <span>Barracks</span>
+                    <input type="text" class="input-field" name="barracks"/>
+                </label>
+                <label>
+                    <span>Hideouts</span>
+                    <input type="text" class="input-field" name="hideouts"/>
+                </label>
+                <label>
+                    <span>Academies</span>
+                    <input type="text" class="input-field" name="academies"/>
+                </label>
+                <label>
+                    <span>Yards</span>
+                    <input type="text" class="input-field" name="yards"/>
+                </label>
+            </form>
+            <label>
+                <span>&nbsp;</span>
+                <input type="submit" id="save"/>
+                <div id="status"></div>
+            </label>
         </div>
-        <form class='buildings'>
-            <div>
-                Homes:
-                <input type="text" placeholder="Percent" name="homes">
-            </div>
-            <div>
-                Farms:
-                <input type="text" placeholder="Percent" name="farms">
-            </div>
-            <div>
-                Walls:
-                <input type="text" placeholder="Percent" name="walls">
-            </div>
-            <div>
-                Weaponries:
-                <input type="text" placeholder="Percent" name="weaponries">
-            </div>
-            <div>
-                Guilds:
-                <input type="text" placeholder="Percent" name="guilds">
-            </div>
-            <div>
-                Mines:
-                <input type="text" placeholder="Percent" name="mines">
-            </div>
-            <div>
-                Bastions:
-                <input type="text" placeholder="Percent" name="bastions">
-            </div>
-            <div>
-                Laboratories:
-                <input type="text" placeholder="Percent" name="labs">
-            </div>
-            <div>
-                Churches:
-                <input type="text" placeholder="Percent" name="churches">
-            </div>
-            <div>
-                Guard Houses:
-                <input type="text" placeholder="Percent" name="gaurds">
-            </div>
-            <div>
-                Barracks:
-                <input type="text" placeholder="Percent" name="barracks">
-            </div>
-            <div>
-                Hideouts:
-                <input type="text" placeholder="Percent" name="hideouts">
-            </div>
-            <div>
-                Academies:
-                <input type="text" placeholder="Percent" name="academies">
-            </div>
-            <div>
-                Yards:
-                <input type="text" placeholder="Percent" name="yards">
-            </div>
-
-            <div id="status"></div>
-        </form>
-        <button id="save">Save</button>
         <script src="js/options.js"></script>
         <script src="js/plugins/jquery-3.1.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </body>
 </html>

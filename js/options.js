@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */ //JsLint fix
 /* jshint node: true */
-
-const Races = {
+// Gaurds is not a typo, it's intended to match the html orkfia typo
+const growthMode = {
     'Dark Elf': {
         homes: 30,
         farms: 7,
@@ -18,25 +18,398 @@ const Races = {
         academies: 5,
         yards: 10
     },
-    'Dwarf': function() {},
-    'Eagle': function() {},
-    'Fairy': function() {},
-    'High Elf': function() {},
-    'Hobbit': function() {},
-    'Mori Hai': function() {},
-    'Raven': function() {},
-    'Spirit': function() {},
-    'Uruk Hai': function() {},
-    'Wizard': function() {},
-    'Wood Elf': function() {}
+    'Dwarf': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Eagle': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Fairy': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'High Elf': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Hobbit': {
+        homes: 30,
+        farms: 10,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 35,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Mori Hai': {
+        homes: 45,
+        farms: 10,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 25,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Raven': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Spirit': {
+        homes: 30,
+        farms: 0,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 40,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 5,
+        academies: 5,
+        yards: 10
+    },
+    'Uruk Hai': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Wizard': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Wood Elf': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    }
 };
 
-function selectRace() {
-    const selectedRace = $('#race :selected').text();
-    // Pouplate Option Input
-    for (let building in Races[selectedRace]) {
-        $('input[name=' + building + ']').val(Races[selectedRace][building]);
+
+const warMode = {
+    'Dark Elf': {
+        homes: 30,
+        farms: 7,
+        walls: 5,
+        weaponries: 0,
+        guilds: 15,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 13,
+        barracks: 0,
+        hideouts: 0,
+        academies: 30,
+        yards: 0
+    },
+    'Dwarf': {
+        homes: 30,
+        farms: 7,
+        walls: 8,
+        weaponries: 15,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 15,
+        gaurds: 15,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 0
+    },
+    'Eagle': {
+        homes: 30,
+        farms: 7,
+        walls: 0,
+        weaponries: 0,
+        guilds: 5,
+        mines: 38,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 10
+    },
+    'Fairy': {
+        homes: 30,
+        farms: 7,
+        walls: 5,
+        weaponries: 0,
+        guilds: 15,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 13,
+        barracks: 0,
+        hideouts: 0,
+        academies: 30,
+        yards: 0
+    },
+    'High Elf': {
+        homes: 30,
+        farms: 7,
+        walls: 8,
+        weaponries: 15,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 15,
+        gaurds: 15,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 0
+    },
+    'Hobbit': {
+        homes: 30,
+        farms: 9,
+        walls: 8,
+        weaponries: 0,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 18,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 25,
+        academies: 5,
+        yards: 0
+    },
+    'Mori Hai': {
+        homes: 45,
+        farms: 9,
+        walls: 5,
+        weaponries: 0,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 6,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 25,
+        academies: 5,
+        yards: 0
+    },
+    'Raven': {
+        homes: 30,
+        farms: 7,
+        walls: 8,
+        weaponries: 15,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 15,
+        gaurds: 15,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 0
+    },
+    'Spirit': {
+        homes: 30,
+        farms: 0,
+        walls: 8,
+        weaponries: 0,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 22,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 30,
+        academies: 5,
+        yards: 0
+    },
+    'Uruk Hai': {
+        homes: 30,
+        farms: 7,
+        walls: 8,
+        weaponries: 15,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 15,
+        gaurds: 15,
+        barracks: 0,
+        hideouts: 0,
+        academies: 5,
+        yards: 0
+    },
+    'Wizard': {
+        homes: 30,
+        farms: 7,
+        walls: 5,
+        weaponries: 0,
+        guilds: 15,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 0,
+        gaurds: 13,
+        barracks: 0,
+        hideouts: 0,
+        academies: 30,
+        yards: 0
+    },
+    'Wood Elf': {
+        homes: 30,
+        farms: 7,
+        walls: 8,
+        weaponries: 0,
+        guilds: 5,
+        mines: 0,
+        bastions: 0,
+        labs: 0,
+        churches: 20,
+        gaurds: 0,
+        barracks: 0,
+        hideouts: 25,
+        academies: 5,
+        yards: 0
     }
+};
+
+function selectGrowthMode() {
+    const selectedRace = $('#growthMode :selected').text();
+    // Pouplate Option Input
+    for (let building in growthMode[selectedRace]) {
+        $('input[name=' + building + ']').val(growthMode[selectedRace][building]);
+    }
+    // Reset Dropdown to default position
+    $(".field-select").prop("selectedIndex", 0);
+}
+
+function selectWarMode() {
+    const selectedRace = $('#warMode :selected').text();
+    // Pouplate Option Input
+    for (let building in warMode[selectedRace]) {
+        $('input[name=' + building + ']').val(warMode[selectedRace][building]);
+    }
+    // Reset Dropdown to default position
+    $(".field-select").prop("selectedIndex", 0);
 }
 // Saves options to chrome.storage.sync.
 function save_options() {
@@ -46,7 +419,7 @@ function save_options() {
     let formData = $('form').serializeArray();
     formData.map(function(el) {
 
-            SaveData[el.name] = el.value;
+        SaveData[el.name] = el.value || 0;
 
     });
     console.log(SaveData);
@@ -58,12 +431,11 @@ function save_options() {
             status.textContent = '';
         }, 2000);
 
-        //Reset dropdown
-        $("#race").val('None');
         // Clear form
         $("form").trigger('reset');
     });
 }
 
-document.getElementById('race').addEventListener('change', selectRace);
+document.getElementById('growthMode').addEventListener('change', selectGrowthMode);
+document.getElementById('warMode').addEventListener('change', selectWarMode);
 document.getElementById('save').addEventListener('click', save_options);

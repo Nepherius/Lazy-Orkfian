@@ -2,8 +2,8 @@
     "manifest_version": 2,
     "name": "Lazy Orkfian",
     "description": "Builds your barren land based on preset percentages",
-    "version": "1.0",
-    "author" : "Nepherius",
+    "version": "1.1",
+    "author": "Nepherius",
     "homepage_url": "http://nepherius.xyz",
     "browser_action": {
         "default_icon": "images/orkfia.png"
@@ -15,6 +15,9 @@
         "page": "options.html",
         "chrome_style": true
     },
+    "web_accessible_resources": [
+        "options.html"
+    ],
     "permissions": [
         "activeTab",
         "storage",

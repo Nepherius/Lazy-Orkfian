@@ -8,7 +8,7 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 43,
         bastions: 0,
         labs: 0,
         churches: 0,
@@ -24,13 +24,13 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 40,
         bastions: 0,
         labs: 0,
         churches: 0,
         gaurds: 0,
         barracks: 0,
-        hideouts: 0,
+        hideouts: 3,
         academies: 5,
         yards: 10
     },
@@ -40,7 +40,7 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 43,
         bastions: 0,
         labs: 0,
         churches: 0,
@@ -56,7 +56,7 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 43,
         bastions: 0,
         labs: 0,
         churches: 0,
@@ -72,13 +72,13 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 40,
         bastions: 0,
         labs: 0,
         churches: 0,
         gaurds: 0,
         barracks: 0,
-        hideouts: 0,
+        hideouts: 3,
         academies: 5,
         yards: 10
     },
@@ -88,7 +88,7 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 35,
+        mines: 40,
         bastions: 0,
         labs: 0,
         churches: 0,
@@ -120,13 +120,13 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 40,
         bastions: 0,
         labs: 0,
         churches: 0,
         gaurds: 0,
         barracks: 0,
-        hideouts: 0,
+        hideouts: 3,
         academies: 5,
         yards: 10
     },
@@ -142,7 +142,7 @@ const growthMode = {
         churches: 0,
         gaurds: 0,
         barracks: 0,
-        hideouts: 5,
+        hideouts: 10,
         academies: 5,
         yards: 10
     },
@@ -152,13 +152,13 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 40,
         bastions: 0,
         labs: 0,
         churches: 0,
         gaurds: 0,
         barracks: 0,
-        hideouts: 0,
+        hideouts: 3,
         academies: 5,
         yards: 10
     },
@@ -168,7 +168,7 @@ const growthMode = {
         walls: 0,
         weaponries: 0,
         guilds: 5,
-        mines: 38,
+        mines: 43,
         bastions: 0,
         labs: 0,
         churches: 0,
@@ -190,7 +190,7 @@ const growthMode = {
         churches: 0,
         gaurds: 0,
         barracks: 0,
-        hideouts: 0,
+        hideouts: 5,
         academies: 5,
         yards: 10
     }
@@ -422,7 +422,6 @@ function save_options() {
         SaveData[el.name] = el.value || 0;
 
     });
-    console.log(SaveData);
     // Save data to storage
     chrome.storage.sync.set(SaveData, function() {
         var status = document.getElementById('status');
@@ -436,6 +435,20 @@ function save_options() {
     });
 }
 
+
+
+
+$('.input-field').keyup(function() {
+    var sum = $('.input-field').toArray().reduce(function(sum, element) {
+        return sum + Number(element.value);
+    }, 0);
+    if (sum > 100 || sum <= 0) {
+      $('#input-sum').text('Total: ' + sum).css('color', 'red');
+    } else {
+      $('#input-sum').text('Total: ' + sum).css('color', 'green');
+    }
+
+});
 document.getElementById('growthMode').addEventListener('change', selectGrowthMode);
 document.getElementById('warMode').addEventListener('change', selectWarMode);
 document.getElementById('save').addEventListener('click', save_options);

@@ -65,3 +65,90 @@
 #status {
   color: green;
 }
+
+
+
+a.kill-calc {
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 20px;
+	bottom: 20px;
+	background: url('chrome-extension://__MSG_@@extension_id__/images/kill.png') no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+#kill-calcUI {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: lightblue;
+  height: 31%;
+  width: 15.5%;
+  position: fixed;
+  top: 30%;
+  right: 1%;
+}
+
+/* Position the close button (top right corner) */
+#kill-calcUI .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 15px;
+    color: #EA7B00
+}
+
+a.attack-calc {
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 50px;
+	bottom: 20px;
+	background: url('chrome-extension://__MSG_@@extension_id__/images/attack.png') no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+#attack_calcUI {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: lightblue;
+  height: 23%;
+  width: 15.5%;
+  position: fixed;
+  top: 30%;
+  right: 1%;
+}
+
+/* Position the close button (top right corner) */
+#attack_calcUI .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 15px;
+    color: #EA7B00
+}
+
+a.builder {
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 80px;
+	bottom: 20px;
+	background: url('chrome-extension://__MSG_@@extension_id__/images/builder.png') no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}

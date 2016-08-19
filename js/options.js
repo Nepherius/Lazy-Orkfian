@@ -414,12 +414,13 @@ function selectWarMode() {
 // Saves options to chrome.storage.sync.
 function save_options() {
 
-    // Convert from data to Array then to Object
+    // Convert form data to Array then to Object
     let SaveData = {};
+    SaveData.Buildings = {};
     let formData = $('form').serializeArray();
     formData.map(function(el) {
 
-        SaveData[el.name] = el.value || 0;
+        SaveData.Buildings[el.name] = el.value || 0;
 
     });
     // Save data to storage
@@ -434,9 +435,6 @@ function save_options() {
         $("form").trigger('reset');
     });
 }
-
-
-
 
 $('.input-field').keyup(function() {
     var sum = $('.input-field').toArray().reduce(function(sum, element) {

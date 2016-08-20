@@ -90,7 +90,7 @@
                             if (buildableLand > 0 && buildingTargetPercent > 0 &&
                                 buildingTargetPercent !== undefined ||
                                 buildingTargetPercent > 0) {
-                                buildCalc(bl.name, bl.current, bl.incoming, buildingTargetPercent);
+                                buildCalc(buildingName, bl.current, bl.incoming, buildingTargetPercent);
                             }
                         });
                         ohSnap('Done, review data and order construction!', {

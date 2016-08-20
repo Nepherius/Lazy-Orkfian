@@ -32,8 +32,8 @@
         if ($('#attack_calcUI #dh').is(':checked')) {
             defBonus += 0.1;
         }
-        defBonus += walls / acres + barren;
-        let totalDef = ((acres + barren) * dpa) * Math.round(defBonus);
+        defBonus += (walls / acres + barren) * 10;
+        let totalDef = ((acres + barren) * dpa) * defBonus;
         $('#attack_calc_result').text('~' + Math.round(totalDef));
     });
 

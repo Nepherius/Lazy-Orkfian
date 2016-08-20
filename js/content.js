@@ -91,7 +91,6 @@
     }
 
     /******** Tick, Tock ********/
-
     // Set Target
     const observerTarget = document.getElementById('clock');
 

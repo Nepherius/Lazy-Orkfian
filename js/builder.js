@@ -76,27 +76,35 @@
                 });
             } else {
                 getStorageData.then(function(buildingsData) {
-                    //loop through the buildings array
-                    Buildings.forEach(function(bl) {
-                        // Nothing to do if no percent, 0% set in options
-                        // or no more buildable land left
-                        if (buildableLand > 0 && buildingsData[bl.name.toLowerCase()] > 0 &&
-                            buildingsData[bl.name.toLowerCase()] !== undefined ||
-                            buildingsData[bl.name.toLowerCase()] > 0) {
-                            buildCalc(bl.name, bl.current, bl.incoming, buildingsData[bl.name.toLowerCase()]);
-                        }
+                        //loop through the buildings array
+                        Buildings.forEach(function(bl) {
+                            // Nothing to do if no percent, 0% set in options
+                            // or no more buildable land left
+                            let buildingName = bl.name;
+                            if (bl.name === 'GuardHouses') {
+                                buildingName = 'gaurds';
+                            } else if (bl.name === 'Laboratories') {
+                                buildingName = 'labs';
+                            }
+                            let buildingTargetPercent = buildingsData[buildingName.toLowerCase()];
+                            if (buildableLand > 0 && buildingTargetPercent > 0 &&
+                                buildingTargetPercent !== undefined ||
+                                buildingTargetPercent > 0) {
+                                buildCalc(bl.name, bl.current, bl.incoming, buildingTargetPercent);
+                            }
+                        });
+                        ohSnap('Done, review data and order construction!', {
+                            color: 'green',
+                            'duration': 5000,
+                        });
+                    },
+                    function(err) {
+                        optionsUrl = chrome.extension.getURL('options.html');
+                        ohSnap('No settings found, click --> <a href="' + optionsUrl + '" target="_blank">Options</a>!', {
+                            color: 'red',
+                            duration: 6000,
+                        });
                     });
-                    ohSnap('Done, review data and order construction!', {
-                        color: 'green',
-                        'duration': 5000,
-                    });
-                }, function(err) {
-                    optionsUrl = chrome.extension.getURL('options.html');
-                    ohSnap('No settings found, click --> <a href="' + optionsUrl + '" target="_blank">Options</a>!', {
-                        color: 'red',
-                        duration: 6000,
-                    });
-                });
             }
 
             function buildCalc(name, current, incoming, target) {

@@ -154,8 +154,8 @@
 
     // Only keep the news within the last 10 seconds
     function filterNews(serverTime, item) {
+        //Odly to select negative news search for positive class?!
         return Date.parse(item.time) + 10000 > serverTime &&
-          //Odly to select negative news search for positive class?!
             item.message.match('class="positive"');
     }
 

@@ -5,7 +5,6 @@
     let attackCalcHtml = '<form id="attack_calcUI"><div><h2>Basic Attack Calculator</h2>';
     attackCalcHtml += '<a href="javascript:void(0)" class="closebtn">&times;</a>';
     attackCalcHtml += '<input type="text" class="input-field" placeholder="Total Acres" id="acres"/>';
-    attackCalcHtml += '<input type="text" class="input-field" placeholder="Barren Land" id="barren"/>';
     attackCalcHtml += '<input type="text" class="input-field" placeholder="Defence Per Acre(DPA)" id="dpa"/>';
     attackCalcHtml += '<input type="text" class="input-field" placeholder="Walls" id="walls"/>';
     attackCalcHtml += '<br><br>Deam\'s Hunt <input id="dh" type="checkbox" checked="checked"/>';
@@ -25,15 +24,14 @@
         e.preventDefault();
         let defBonus = 1;
         let acres = $('#attack_calcUI #acres').val() || 0;
-        let barren = $('#attack_calcUI #barren').val() || 0;
         let dpa = $('#attack_calcUI #dpa').val() || 0;
         let walls = $('#attack_calcUI #walls').val() || 0;
 
         if ($('#attack_calcUI #dh').is(':checked')) {
             defBonus += 0.1;
         }
-        defBonus += (walls / acres + barren) * 10;
-        let totalDef = ((acres + barren) * dpa) * defBonus;
+        defBonus += (walls / acres) * 10;
+        let totalDef = (acres * dpa) * defBonus;
         $('#attack_calc_result').text('~' + Math.round(totalDef));
     });
 

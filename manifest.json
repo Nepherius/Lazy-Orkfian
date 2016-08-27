@@ -8,6 +8,9 @@
     "browser_action": {
         "default_icon": "images/orkfia.png"
     },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
     "options_ui": {
         "page": "options.html",
         "chrome_style": true

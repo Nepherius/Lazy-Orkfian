@@ -413,7 +413,6 @@ function selectWarMode() {
 }
 // Saves options to chrome.storage.sync.
 function save_options() {
-
     // Convert form data to Array then to Object
     let SaveData = {};
     SaveData.Buildings = {};

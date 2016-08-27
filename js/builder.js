@@ -76,6 +76,7 @@
                 });
             } else {
                 getStorageData.then(function(buildingsData) {
+                        console.log(buildingsData);
                         //loop through the buildings array
                         Buildings.forEach(function(bl) {
                             // Nothing to do if no percent, 0% set in options

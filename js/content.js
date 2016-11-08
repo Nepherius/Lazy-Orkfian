@@ -18,15 +18,11 @@
         'tribe': function() {
 
             let tb = $('table tbody');
-
             // Populate tribeStats
-            for (let i = 0; i < 6; i++) { // Yeah, this looks horrible.
+            for (let i = 0; i < 11; i++) { // Yeah, this looks horrible.
                 tribeStats[tb.children().eq(i).children().eq(0).text().replace(':', '')] =
                     tb.children().eq(i).children().eq(1).text().replace(',', '');
-                tribeStats[tb.children().eq(i).children().eq(3).text().replace(':', '')] =
-                    tb.children().eq(i).children().eq(4).text().replace(',', '');
             }
-
             // Do stuff with the new info
             let citizens = Number(tribeStats.Citizens);
             let military = Number(tribeStats['Military Units']);

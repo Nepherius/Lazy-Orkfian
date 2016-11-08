@@ -9,56 +9,37 @@
             const totalAcres = $('.totaltext').text().replace(/[^\d]/g, '');
             let buildableLand = $('.buildable').text();
             // Retrieve Building Table
-            const table = $('table');
+            const table = $('div.row.table-body');
 
-            /***************** Many Questionable things happening below *****************/
+            /***************** Get current land stats *****************/
             let Buildings = [];
             let current_1;
             let incoming_1;
-            let current_2;
-            let incoming_2;
-            // Each row has 2 columns, retrieve both of them at the same time,
-            // cuz I suck at DOM and jQuery manipulation
-            for (let i = 1; i <= 7; i++) {
-                // Column 1
-                let filter_1 = table.find('tr').eq(i).children().eq(1).text().replace(/[^\w\d\(\)]/gi, '');
-                if (filter_1.match(/\)/g)) {
-                    let newFilter = filter_1.split('\)');
-                    current_1 = newFilter[1];
-                    incoming_1 = newFilter[0].replace(/[^\d]/, '');
+
+            for (let i = 0; i <= 13; i++) {
+                let buildingName = table.children().eq(i).find('div').eq(1).text().replace(/[^\w\d\(\)]/gi, '');
+                let alreadyBuilt = table.children().eq(i).find('div').eq(2).text().replace(/[^\w\d\(\)]/gi, '');
+                let percent = table.children().eq(i).find('div').eq(3).text().replace(/[^\w\d\(\)]/gi, '');
+
+                if (alreadyBuilt.match(/\)/g)) {
+                    let newFilter = alreadyBuilt.split('\)');
+                    current = newFilter[1].replace(/[^\d]/, '');
+                    incoming = newFilter[0].replace(/[^\d]/, '');
                 } else {
-                    current_1 = filter_1;
-                    incoming_1 = 0;
+                    current = alreadyBuilt;
+                    incoming = 0;
                 }
                 let name_1 = table.find('tr').eq(i).children().eq(0).text().replace(/[^\w\d]/gi, '');
                 let percent_1 = table.find('tr').eq(i).children().eq(2).text().replace(/[^\w\d]/gi, '');
                 Buildings.push({
-                    name: name_1,
-                    current: current_1,
-                    incoming: incoming_1,
-                    percent: percent_1
-                });
-
-                //Column 2
-                let filter_2 = table.find('tr').eq(i).children().eq(6).text().replace(/[^\w\d\(\)]/gi, '');
-                if (filter_2.match(/\)/g)) {
-                    let newFilter = filter_2.split('\)');
-                    current_2 = newFilter[1];
-                    incoming_2 = newFilter[0].replace(/[^\d]/, '');
-                } else {
-                    current_2 = filter_2;
-                    incoming_2 = 0;
-                }
-                let name_2 = table.find('tr').eq(i).children().eq(5).text().replace(/[^\w\d]/gi, '');
-                let percent_2 = table.find('tr').eq(i).children().eq(7).text().replace(/[^\w\d]/gi, '');
-                Buildings.push({
-                    name: name_2,
-                    current: current_2,
-                    incoming: incoming_2,
-                    percent: percent_2
+                    name: buildingName,
+                    current: current,
+                    incoming: incoming,
+                    percent: percent
                 });
             }
 
+            /* Retrieve data from storage */
             const getStorageData = new Promise(function(resolve, reject) {
                 chrome.storage.sync.get(null, function(storageData) {
                     if (Object.getOwnPropertyNames(storageData).length === 0) {
@@ -108,6 +89,7 @@
                     });
             }
 
+            /* The build calculator function, the magic happens here */
             function buildCalc(name, current, incoming, target) {
                 let toBuild = Math.round(target / 100 * totalAcres - current - incoming);
                 if (buildableLand > 0 && target > 0 && toBuild > 0) {
@@ -129,6 +111,4 @@
         }
 
     });
-
-
 })();
